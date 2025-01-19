@@ -1,7 +1,44 @@
 <mat-toolbar color='primary'>
     <span> Meetup Management </span>
-    <div class="spacer"></div>
-    <a mat-button>Home</a>
-    <a mat-button>About</a>
-    <a mat-button>Contact</a>
+    <div class="search-bar" *ngIf="!isMobile">
+        <mat-form-field appearance="outline">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Search for Meetups..." [(ngModel)] = "searchQuery">
+            <button mat-icon-button matSuffix (click)="onSearch()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <span class="spacer"></span>
+
+    <ng-container *ngIf="!isMobile">
+        <button mat-button>Home</button>
+        <button mat-button>About</button>
+        <button mat-button>Contact</button>
+    </ng-container>
+    
+    <button
+        mat-icon-button 
+        *ngIf="isMobile"
+        [matMenuTriggerFor]="mobileMenu"
+        aria-label="Menu"
+    >
+    <mat-icon>menu</mat-icon>
+    </button>
+    
+
+    <mat-menu #mobileMenu = "matMenu">
+        <mat-form-field appearance="outline" class="mobile-search">
+            <mat-label>Search</mat-label>
+            <input matInput placeholder="Search for Meetups..." [(ngModel)] = "searchQuery">
+            <button mat-icon-button matSuffix (click)="onSearch()">
+                <mat-icon>search</mat-icon>
+            </button>
+        </mat-form-field>
+        <button mat-menu-item>Home</button>
+        <button mat-menu-item>About</button>
+        <button mat-menu-item>Contact</button>
+    </mat-menu>
+    
 </mat-toolbar>
