@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   imports: [
     RouterOutlet, 
     NavbarComponent,
+    HomeComponent,
     MatToolbarModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'meetup-mgmt-system';
+  title = 'Cincinnati MeetUp';
 }
