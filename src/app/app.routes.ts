@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 
 export const routes: Routes = [
@@ -19,5 +20,14 @@ export const routes: Routes = [
     {
         path:'contact',
         component:AboutComponent
+    },
+    {
+        path:'',
+        redirectTo:'/home',
+        pathMatch: 'full'
+    },
+    {
+        path: '**',
+        component:PageNotFoundComponent
     }
 ];
